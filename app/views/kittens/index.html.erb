@@ -1,0 +1,13 @@
+<h1>All Kittens</h1>
+<ul>
+  <% @kittens.each do |f| %>
+  <li>
+    <%= link_to f.name, f %>
+    <%= link_to 'Delete', kitten_path(f), data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Do you truly wish to be a monster?' } %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add new kitten', new_kitten_path %>

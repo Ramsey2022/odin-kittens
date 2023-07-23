@@ -1,0 +1,25 @@
+<%= form_with model: kitten do |f| %>
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :age %>
+  <%= f.number_field :age, in: 0..4 %>
+</div>
+<div>
+  <%= f.label :cuteness %>
+  <%= f.number_field :cuteness, in: 0..10 %>
+</div>
+<div>
+  <%= f.label :softness %>
+  <%= f.number_field :softness, in: 0..10 %>
+</div>
+<div>
+  <% if Kitten.exists?(kitten.id) %>
+    <%= f.submit 'Update kitten information' %>
+    <% else %>
+    <%= f.submit 'Add new kitten' %>
+    <% end %>
+</div>
+<% end %>
